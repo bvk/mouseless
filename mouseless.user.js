@@ -25,6 +25,13 @@ function clickAnchor(anchor) {
     }
 }
 
+// Check if the link element is eligible for keyboard navigation.
+function goodLink(anchor) {
+    if (!anchor.href || anchor.href.length == 0)
+        return false
+    return true
+}
+
 // Capture keyboard events and take action if necessary.
 function captureKey(event) {
     if (event.keyCode == keyReturn && keysCaptured.length != 0) {
@@ -40,6 +47,9 @@ function captureKey(event) {
         var anchors = document.body.getElementsByTagName("a")
         for (var i = 0; i < anchors.length; i++) {
             var anchor = anchors[i]
+            if (!goodLink(anchor))
+                continue
+
             var linkIndex = anchor.getAttribute('linkIndex')
             if (!linkIndex)
                 continue
@@ -61,8 +71,13 @@ function captureKey(event) {
 // Apply a counter to each link.
 function resetLinks() {
     var anchors = document.body.getElementsByTagName("a")
-    for (var i = 0; i < anchors.length; i++)
-        anchors[i].setAttribute('linkIndex', i)
+    for (var i = 0; i < anchors.length; i++) {
+        var anchor = anchors[i]
+        if (!goodLink(anchor))
+            continue
+
+        anchor.setAttribute('linkIndex', i)
+    }
 }
 
 // Update the CSS stylesheet to display link counters.
