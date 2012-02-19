@@ -14,6 +14,7 @@ var keysCaptured = ""
 // Perform a click on an link.
 function clickAnchor(anchor) {
     try {
+        anchor.focus()
         anchor.click()
     } catch (ex) {
         // If click() method doesn't work!
@@ -34,8 +35,11 @@ function captureKey(event) {
             if (!linkIndex)
                 continue
 
-            if (linkIndex == parseInt(keysCaptured))
+            if (linkIndex == parseInt(keysCaptured)) {
+                event.preventDefault()
+                event.stopPropagation()
                 clickAnchor(anchor)
+            }
         }
         keysCaptured = ""
     } else if (event.keyCode >= keyZero && event.keyCode < keyNine) {
