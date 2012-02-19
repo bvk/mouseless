@@ -14,4 +14,5 @@ key, this extension opens the corresponding link.
 * Known Issues
 
 - This doesn't seem to work on webpages with flash content.
-- It seems if AJAX content loaded later doesn't have the nagivation numbers.
+- It seems AJAX content that is loaded later doesn't get the navigation
+  numbers.
