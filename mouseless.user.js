@@ -28,6 +28,15 @@ function clickAnchor(anchor) {
 // Capture keyboard events and take action if necessary.
 function captureKey(event) {
     if (event.keyCode == keyReturn && keysCaptured.length != 0) {
+        // If any editable input element has the focus, do not steal keyboard
+        // events.
+        var elem = document.activeElement
+        var tag = elem.tagName.toUpperCase()
+        if ((tag == "INPUT" || tag == "TEXTAREA") && !elem.disabled()) {
+            keysCaptured = ""
+            return
+        }
+	// Figure out matching link element and visit that link.
         var anchors = document.body.getElementsByTagName("a")
         for (var i = 0; i < anchors.length; i++) {
             var anchor = anchors[i]
