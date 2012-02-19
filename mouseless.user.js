@@ -20,8 +20,8 @@ function clickAnchor(anchor) {
         // If click() method doesn't work!
         var event = document.createEvent("MouseEvents")
         event.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0,
-                             false, false, false, false, 0, null);
-        anchor.dispatchEvent(event);
+                             false, false, false, false, 0, null)
+        anchor.dispatchEvent(event)
     }
 }
 

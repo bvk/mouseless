@@ -2,11 +2,16 @@
 
 * About this Extension
 
-This GreaseMonkey extension enables internet browsing without using the
-mouse. Currently, only the Google Chrome browser is supported.
+This GreaseMonkey extension enables internet browsing without the
+mouse. Currently, only Google Chrome browser is supported.
 
 * How to use this Extension
 
-If this extension is enabled, users should notice a small number as a
-superscript after every clickable link. When users type that number and press
-enter key, this extension will open the corresponding link.
+If this extension is enabled, users should notice a small number -- as a
+superscript -- after every clickable link. When users type that number and
+press enter key, this extension opens the corresponding link.
+
+* Known Issues
+
+- This doesn't seem to work on webpages with flash content.
+- It seems if AJAX content loaded later doesn't have the nagivation numbers.
