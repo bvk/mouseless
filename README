@@ -8,8 +8,8 @@ mouse. Currently, only Google Chrome browser is supported.
 * How to use this Extension
 
 If this extension is enabled, users should notice a small number -- as a
-superscript -- after every clickable link. When users type that number and
-press enter key, this extension opens the corresponding link.
+superscript -- after every link. When users type that number and press enter
+key, this extension opens the corresponding link.
 
 * Known Issues
 
