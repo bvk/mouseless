@@ -9,7 +9,9 @@ mouse. Currently, only Google Chrome browser is supported.
 
 If this extension is enabled, users should notice a small number -- as a
 superscript -- after every link. When users type that number and press enter
-key, this extension opens the corresponding link.
+key, this extension opens the corresponding link. Some salient feaures are:
+
+- Ctrl+Enter opens the link in a new tab
 
 * Known Issues
 
@@ -21,4 +23,4 @@ key, this extension opens the corresponding link.
 
 * TODO
 
-- Ctrl+Enter should open the link in new tab.
+- What more?

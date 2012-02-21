@@ -9,6 +9,7 @@
 var keyZero = 48
 var keyNine = 57
 var keyReturn = 13
+var keyControl = 17
 var keysCaptured = ""
 
 // Perform a click on an link.
@@ -57,12 +58,19 @@ function captureKey(event) {
             if (linkIndex == parseInt(keysCaptured)) {
                 event.preventDefault()
                 event.stopPropagation()
-                clickAnchor(anchor)
+
+		if (event.ctrlKey)
+		    window.open(anchor.href, '_newtab')
+		else
+                    clickAnchor(anchor)
             }
         }
         keysCaptured = ""
     } else if (event.keyCode >= keyZero && event.keyCode < keyNine) {
         keysCaptured += event.keyCode - keyZero
+    } else if (event.keyCode == keyControl) {
+	// Control+Enter should open the link in new tab, so don't reset the
+	// keyboard state on control.
     } else {
         keysCaptured = ""
     }
