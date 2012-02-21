@@ -16,3 +16,9 @@ key, this extension opens the corresponding link.
 - This doesn't seem to work on webpages with flash content.
 - It seems AJAX content that is loaded later doesn't get the navigation
   numbers.
+- Link numbers seem to get messed up when you returned to a webpage using the
+  back button.
+
+* TODO
+
+- Ctrl+Enter should open the link in new tab.
