@@ -91,6 +91,9 @@ function resetLinks() {
 // Update the CSS stylesheet to display link counters.
 function updateStyleSheet() {
     var head = document.getElementsByTagName('head')[0]
+    if (!head)
+	return
+
     head.appendChild(document.createElement('style'))
     var style = document.styleSheets[document.styleSheets.length - 1]
     style.insertRule("a:after { " +
