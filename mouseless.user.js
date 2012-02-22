@@ -87,31 +87,22 @@ function captureKey(event) {
 	log("Editable element has the focus; resetting mouseless state")
         return
     }
+
     if (event.keyCode == keyReturn && keysCaptured.length != 0) {
-	// Figure out matching link element and visit that link.
-        var anchors = document.body.getElementsByTagName("a")
-        for (var i = 0; i < anchors.length; i++) {
-            var anchor = anchors[i]
-            if (!goodLink(anchor))
-                continue
+	if (!linkSelected) {
+	    log("No link is currently selected.")
+	} else {
+            event.preventDefault()
+            event.stopPropagation()
 
-            var linkIndex = anchor.getAttribute('linkIndex')
-            if (!linkIndex)
-                continue
-
-            if (linkIndex == parseInt(keysCaptured)) {
-                event.preventDefault()
-                event.stopPropagation()
-
-		if (event.ctrlKey) {
-		    log("Opening link " + anchor.href + " in a new window")
-		    window.open(anchor.href)
-		} else {
-		    log("Opening link " + anchor.href)
-                    clickAnchor(anchor)
-		}
-            }
-        }
+	    if (event.ctrlKey) {
+		log("Opening link " + linkSelected.href + " in a new window")
+		window.open(linkSelected.href)
+	    } else {
+		log("Opening link " + linkSelected.href)
+                clickAnchor(linkSelected)
+	    }
+	}
 	reset()
     } else if (event.keyCode >= keyZero && event.keyCode <= keyNine) {
 	log("Received event with number, " + (event.keyCode - keyZero));
