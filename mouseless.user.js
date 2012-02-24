@@ -89,21 +89,26 @@ function captureKey(event) {
     }
 
     if (event.keyCode == keyReturn && keysCaptured.length != 0) {
+        if (keysCaptured == "0") {
+            log("Back to the old page.")
+            history.back();
+            return;
+        }
+
 	if (!linkSelected) {
 	    log("No link is currently selected.")
-	} else {
-            event.preventDefault()
-            event.stopPropagation()
-
-	    if (event.ctrlKey) {
-		log("Opening link " + linkSelected.href + " in a new window")
-		window.open(linkSelected.href)
-	    } else {
-		log("Opening link " + linkSelected.href)
-                clickAnchor(linkSelected)
-	    }
+            return
 	}
-	reset()
+
+        event.preventDefault()
+        event.stopPropagation()
+	if (event.ctrlKey) {
+	    log("Opening link " + linkSelected.href + " in a new window")
+	    window.open(linkSelected.href)
+            return;
+	}
+	log("Opening link " + linkSelected.href)
+        clickAnchor(linkSelected)
     } else if (event.keyCode >= keyZero && event.keyCode <= keyNine) {
 	log("Received event with number, " + (event.keyCode - keyZero));
         keysCaptured += (event.keyCode - keyZero)
@@ -124,7 +129,8 @@ function resetLinks() {
         if (!goodLink(anchor))
             continue
 
-        anchor.setAttribute('linkIndex', i)
+        // Link number zero is reserved for Back button.
+        anchor.setAttribute('linkIndex', i + 1)
     }
 }
 
