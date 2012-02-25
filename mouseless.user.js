@@ -91,8 +91,8 @@ function captureKey(event) {
     if (event.keyCode == keyReturn && keysCaptured.length != 0) {
         if (keysCaptured == "0") {
             log("Back to the old page.")
-            history.back();
-            return;
+            history.back()
+            return
         }
 
 	if (!linkSelected) {
@@ -105,12 +105,13 @@ function captureKey(event) {
 	if (event.ctrlKey) {
 	    log("Opening link " + linkSelected.href + " in a new window")
 	    window.open(linkSelected.href)
-            return;
+            reset()
+            return
 	}
 	log("Opening link " + linkSelected.href)
         clickAnchor(linkSelected)
     } else if (event.keyCode >= keyZero && event.keyCode <= keyNine) {
-	log("Received event with number, " + (event.keyCode - keyZero));
+	log("Received event with number, " + (event.keyCode - keyZero))
         keysCaptured += (event.keyCode - keyZero)
     } else if (event.keyCode == keyControl) {
 	// Control+Enter should open the link in new tab, so don't reset the
@@ -118,7 +119,7 @@ function captureKey(event) {
     } else {
 	reset()
     }
-    highlightLink();
+    highlightLink()
 }
 
 // Apply a counter to each link.

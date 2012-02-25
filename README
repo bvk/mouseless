@@ -12,6 +12,8 @@ superscript -- after every link. When users type that number and press enter
 key, this extension opens the corresponding link. Some salient feaures are:
 
 - Ctrl+Enter opens the link in a new tab
+- Zero+Enter works like Back button
+- Link is highlighted as you type the link number
 
 * Known Issues
 
