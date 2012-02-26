@@ -12,16 +12,16 @@ superscript -- after every link. When users type that number and press enter
 key, this extension opens the corresponding link. Some salient feaures are:
 
 - Ctrl+Enter opens the link in a new tab
+- Ctrl+Shift+Enter opens the link in a new background tab
 - Zero+Enter works like Back button
 - Link is highlighted as you type the link number
 
 * Known Issues
 
 - This doesn't seem to work on webpages with flash content.
-- It seems AJAX content that is loaded later doesn't get the navigation
-  numbers.
-- Link numbers seem to get messed up when you returned to a webpage using the
-  back button.
+- AJAX content that is loaded later doesn't get the navigation numbers.
+- Link numbers seem to get messed up when returned to a webpage using the back
+  button.
 
 * TODO
 

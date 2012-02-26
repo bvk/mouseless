@@ -9,6 +9,7 @@
 var keyZero = 48
 var keyNine = 57
 var keyReturn = 13
+var keyShift = 16
 var keyControl = 17
 var highlightColor = '#49A8FF' // Color that Matches with default Chrome theme.
 
@@ -105,6 +106,8 @@ function captureKey(event) {
 	if (event.ctrlKey) {
 	    log("Opening link " + linkSelected.href + " in a new window")
 	    window.open(linkSelected.href)
+            if (event.shiftKey)
+                self.focus()
             reset()
             return
 	}
@@ -113,9 +116,9 @@ function captureKey(event) {
     } else if (event.keyCode >= keyZero && event.keyCode <= keyNine) {
 	log("Received event with number, " + (event.keyCode - keyZero))
         keysCaptured += (event.keyCode - keyZero)
-    } else if (event.keyCode == keyControl) {
-	// Control+Enter should open the link in new tab, so don't reset the
-	// keyboard state on control.
+    } else if (event.keyCode == keyControl || event.keyCode == keyShift) {
+	// Control+Enter or Control+Shift+Enter should open the link in new
+	// tab, so don't reset the keyboard state on control.
     } else {
 	reset()
     }
