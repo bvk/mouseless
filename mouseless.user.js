@@ -1,10 +1,12 @@
 // ==UserScript==
-// @name           mouseless
-// @namespace      http://www.userscripts.org
-// @description    Internet browsing without mouse.
-// @include        *
-// @exclude        https://mail.google.com/*
-// @exclude        https://www.google.com/*
+// @name          mouseless
+// @namespace     http://www.userscripts.org
+// @description   Browse internet without mouse (for Google Chrome only).
+// @include       *
+// @exclude       https://mail.google.com/*
+// @exclude       https://www.google.com/*
+// @version       0.9
+// @updateURL     https://github.com/bvk/mouseless/raw/master/mouseless.user.js
 // ==/UserScript==
 
 // Some global variables. FIXME: Global variables are bad.
