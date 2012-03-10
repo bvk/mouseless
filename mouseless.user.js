@@ -3,6 +3,8 @@
 // @namespace      http://www.userscripts.org
 // @description    Internet browsing without mouse.
 // @include        *
+// @exclude        https://mail.google.com/*
+// @exclude        https://www.google.com/*
 // ==/UserScript==
 
 // Some global variables. FIXME: Global variables are bad.
