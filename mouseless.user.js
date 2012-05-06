@@ -5,7 +5,7 @@
 // @include       *
 // @exclude       https://mail.google.com/*
 // @exclude       https://www.google.com/*
-// @version       0.9
+// @version       0.91
 // @updateURL     https://github.com/bvk/mouseless/raw/master/mouseless.user.js
 // ==/UserScript==
 
@@ -80,14 +80,28 @@ function reset() {
     keysCaptured = ""
 }
 
+// Return True if 'elem' needs keystrokes as its input.
+function inputElement(elem) {
+    if (elem.disabled)
+	return false
+
+    var tag = elem.tagName.toUpperCase()
+    if (tag == "TEXTAREA")
+	return true
+
+    var type = elem.type.toUpperCase()
+    if (tag == "INPUT" && (type == "TEXT" || type == "PASSWORD"))
+	return true
+
+    return false
+}
+
 // Capture keyboard events and take action if necessary.
 function captureKey(event) {
     // If any editable input element has the focus, do not handle keyboard
     // events.
     var elem = document.activeElement
-    var tag = elem.tagName.toUpperCase()
-    if (((tag == "INPUT" && elem.type.toUpperCase() == "TEXT") ||
-	 tag == "TEXTAREA") && !elem.disabled()) {
+    if (inputElement(elem)) {
 	reset()
 	log("Editable element has the focus; resetting mouseless state")
         return
