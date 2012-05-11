@@ -5,7 +5,7 @@
 // @include       *
 // @exclude       https://mail.google.com/*
 // @exclude       https://www.google.com/*
-// @version       0.91
+// @version       0.92
 // @updateURL     https://github.com/bvk/mouseless/raw/master/mouseless.user.js
 // ==/UserScript==
 
@@ -89,9 +89,11 @@ function inputElement(elem) {
     if (tag == "TEXTAREA")
 	return true
 
-    var type = elem.type.toUpperCase()
-    if (tag == "INPUT" && (type == "TEXT" || type == "PASSWORD"))
-	return true
+    if (elem.type) {
+	var type = elem.type.toUpperCase()
+	if (tag == "INPUT" && (type == "TEXT" || type == "PASSWORD"))
+	    return true
+    }
 
     return false
 }
